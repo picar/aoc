@@ -26,7 +26,7 @@ fn chars_to_string(chars: Vec<char>) -> usize {
 }
 
 fn main() -> io::Result<()> {                                                 
-    let path = Path::new("../data.txt");                                      
+    let path = Path::new("../test.txt");                                      
     let file = File::open(&path)?;                                            
     let reader = io::BufReader::new(file);    
 
