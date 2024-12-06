@@ -17,7 +17,7 @@ func abs(a int) int {
 }
 
 func main() {
-	file, err := os.Open("../data.txt")
+	file, err := os.Open("../../data.txt")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
