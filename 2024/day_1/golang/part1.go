@@ -35,15 +35,15 @@ func main() {
 		right = append(right, i)
 	}
 
-	sort.Ints(left)
-	sort.Ints(right)
-
 	if err := scanner.Err(); err != nil {
 		fmt.Println("Error reading file:", err)
 	}
 
+	sort.Ints(left)
+	sort.Ints(right)
+
 	s := 0
-	for i := range len(left) {
+	for i := range left {
 		s += abs(left[i] - right[i])
 	}
 	fmt.Println(s)
