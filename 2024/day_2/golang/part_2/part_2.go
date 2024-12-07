@@ -65,7 +65,7 @@ func isSafe(s []int) bool {
 }
 
 func main() {
-	file, err := os.Open("../data.txt")
+	file, err := os.Open("../../data.txt")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -79,6 +79,22 @@ func main() {
 		s := atoislice(line)
 		if isSafe(s) {
 			count++
+			continue
+		}
+
+		for i := range s {
+			newSlice := make([]int, len(s))
+			copy(newSlice, s)
+			if i == len(s)-1 {
+				newSlice = newSlice[:i]
+			} else {
+
+				newSlice = append(newSlice[:i], newSlice[i+1:]...)
+			}
+			if isSafe(newSlice) {
+				count++
+				break
+			}
 		}
 	}
 	fmt.Println(count)
